@@ -63,6 +63,9 @@ for A_Z_URL in A_Z_URLS:
 
 URL_DF = pandas.DataFrame({"URLS":URLS})
 
+URL_DF = pandas.read_excel("C:/Users/csavage/OneDrive - Alvarez and Marsal/Desktop/URLS.xlsx")
+URL_DF.columns = ['URLS']
+
 # Get rid of the URLs we don't need:
 URL_DF = (URL_DF
  .loc[URL_DF['URLS'].str.lower().str.contains('/professionals/',regex=True,na=False)] #Unique identifier
@@ -73,8 +76,12 @@ URL_DF = (URL_DF
 )
 
 URL_DF['URLS'] = URL_DF[URL_DF['URLS'].str.contains('vcard') == False]
+URL_DF['URLS'] = URL_DF[URL_DF['URLS'].str.contains('pamela-onufer') == False]
+
+
 URL_DF = URL_DF.dropna()
 
+#URL_DF.to_excel("C:/Users/csavage/OneDrive - Alvarez and Marsal/Desktop/URLS.xlsx")
 
 LIST_URLS = list(URL_DF['URLS'])
 
@@ -89,11 +96,10 @@ for A in LIST_URLS:
         driver.get(A)
         driver.implicitly_wait(1000)
         Name = driver.find_element('xpath', '//*[@id="main"]/section[1]/div/div[2]/div/div/div/div[1]/h2')
-        Position = driver.find_element('xpath', '//*[@id="main"]/section[1]/div/div[2]/div/div/div/div[1]/h3')
         Location = driver.find_element('xpath', '//*[@id="main"]/section[1]/div/div[2]/div/div/div/div[2]/h3/a[1]')
-        Attorneys.append({"Name":Name.text,"Location":Location.text,"Position":Position.text,"URL:":A})
+        Attorneys.append({"Name":Name.text,"Location":Location.text,"URL:":A})
     except Exception:
-        pass
+        continue
     time.sleep(.1)
 
 LF_NAME = 'ReedSmith'
