@@ -104,7 +104,7 @@ for A in LIST_URLS:
         continue
     time.sleep(.1)
 
-LF_NAME = 'ReedSmith'
+LF_NAME = 'Proskauer'
 ATT_DF = pandas.DataFrame(Attorneys)
 ATT_DF.to_excel(PATH_FOR_EXCELS+LF_NAME+".xlsx")
 # Open the Excel file
