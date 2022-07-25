@@ -91,6 +91,8 @@ Attorneys = []
 #XPath_Bio = str(input("Enter XPath for Attorney's Bio: "))
 PATH_FOR_EXCELS = "C:/Users/csavage/OneDrive - Alvarez and Marsal/Desktop/"
 
+# Due to inconsistencies in the different attorneys' profiles, certain attributes were omitted.
+
 for A in LIST_URLS:
     try:
         driver.get(A)
