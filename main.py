@@ -12,9 +12,9 @@ from selenium.webdriver.support import expected_conditions as EC
 import time
 import openpyxl
 
-chrome_Webdriver_loc = 'C:/Users/csavage/Downloads/chromedriver_win32 (3) for 104/chromedriver.exe'
+chrome_Webdriver_loc = 'Place Your Filepath to Chrome Webdriver Here'
 # Path to Chrome Beta (104)
-Options.binary_location = "C:/Program Files/Google/Chrome Beta/Application/chrome.exe"
+Options.binary_location = "Place Your Filepath to Chrome.exe Here"
 
 s = Service(chrome_Webdriver_loc)
 driver = webdriver.Chrome(service=s)
@@ -63,9 +63,6 @@ for A_Z_URL in A_Z_URLS:
 
 URL_DF = pandas.DataFrame({"URLS":URLS})
 
-URL_DF = pandas.read_excel("C:/Users/csavage/OneDrive - Alvarez and Marsal/Desktop/URLS.xlsx")
-URL_DF.columns = ['URLS']
-
 # Get rid of the URLs we don't need:
 URL_DF = (URL_DF
  .loc[URL_DF['URLS'].str.lower().str.contains('/professionals/',regex=True,na=False)] #Unique identifier
@@ -78,10 +75,7 @@ URL_DF = (URL_DF
 URL_DF['URLS'] = URL_DF[URL_DF['URLS'].str.contains('vcard') == False]
 URL_DF['URLS'] = URL_DF[URL_DF['URLS'].str.contains('pamela-onufer') == False]
 
-
 URL_DF = URL_DF.dropna()
-
-#URL_DF.to_excel("C:/Users/csavage/OneDrive - Alvarez and Marsal/Desktop/URLS.xlsx")
 
 LIST_URLS = list(URL_DF['URLS'])
 
@@ -89,7 +83,7 @@ Attorneys = []
 
 #XPath_Contact = str(input("Enter XPath for Attorney's Contact (or Name): "))
 #XPath_Bio = str(input("Enter XPath for Attorney's Bio: "))
-PATH_FOR_EXCELS = "C:/Users/csavage/OneDrive - Alvarez and Marsal/Desktop/"
+PATH_FOR_EXCELS = "Place Your Filepath To Excel Output Location Here"
 
 # Due to inconsistencies in the different attorneys' profiles, certain attributes were omitted.
 
