@@ -13,7 +13,7 @@ import time
 import openpyxl
 
 chrome_Webdriver_loc = 'Place Your Filepath to Chrome Webdriver Here'
-# Path to Chrome Beta (104)
+# Path to Chrome Beta (106)
 Options.binary_location = "Place Your Filepath to Chrome.exe Here"
 
 s = Service(chrome_Webdriver_loc)
@@ -72,6 +72,7 @@ URL_DF = (URL_DF
  .dropna()
 )
 
+# Further cleanup of the URL_DF object.
 URL_DF['URLS'] = URL_DF[URL_DF['URLS'].str.contains('vcard') == False]
 URL_DF['URLS'] = URL_DF[URL_DF['URLS'].str.contains('pamela-onufer') == False]
 
