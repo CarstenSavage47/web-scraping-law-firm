@@ -1,5 +1,5 @@
 
-## Proskauer Law Firm
+## This is an example for the Proskauer Law Firm
 import pandas
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
