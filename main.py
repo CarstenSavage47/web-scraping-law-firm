@@ -1,4 +1,3 @@
-# Hello
 ## This is an example for the Proskauer Law Firm
 import pandas
 import selenium
