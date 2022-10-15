@@ -12,9 +12,9 @@ from selenium.webdriver.support import expected_conditions as EC
 import time
 import openpyxl
 
-chrome_Webdriver_loc = 'Place Your Filepath to Chrome Webdriver Here'
-# Path to Chrome Beta (106)
-Options.binary_location = "Place Your Filepath to Chrome.exe Here"
+chrome_Webdriver_loc = '/Users/carstenjuliansavage/Downloads/chromedriver'
+# For Windows - Specify Path to Chrome Beta
+#Options.binary_location = "/Applications/Google Chrome.app"
 
 s = Service(chrome_Webdriver_loc)
 driver = webdriver.Chrome(service=s)
@@ -84,7 +84,7 @@ Attorneys = []
 
 #XPath_Contact = str(input("Enter XPath for Attorney's Contact (or Name): "))
 #XPath_Bio = str(input("Enter XPath for Attorney's Bio: "))
-PATH_FOR_EXCELS = "Place Your Filepath To Excel Output Location Here"
+PATH_FOR_EXCELS = "/Users/carstenjuliansavage/Documents"
 
 # Due to inconsistencies in the different attorneys' profiles, certain attributes were omitted.
 
