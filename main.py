@@ -1,4 +1,4 @@
-## This is an example for the Proskauer Law Firm
+# This is an example for the Proskauer Law Firm
 import pandas
 import selenium
 from selenium import webdriver
@@ -14,7 +14,7 @@ import openpyxl
 
 chrome_Webdriver_loc = '/Users/carstenjuliansavage/Downloads/chromedriver'
 # For Windows - Specify Path to Chrome Beta
-#Options.binary_location = "/Applications/Google Chrome.app"
+#Options.binary_location = "/Applications/Google Chrome.exe"
 
 s = Service(chrome_Webdriver_loc)
 driver = webdriver.Chrome(service=s)
@@ -63,9 +63,12 @@ for A_Z_URL in A_Z_URLS:
 
 URL_DF = pandas.DataFrame({"URLS":URLS})
 
+URL_DF = [{"URLS":'a',"b":'c'}]
+URL_DF = pandas.DataFrame(URL_DF)
+
 # Get rid of the URLs we don't need:
 URL_DF = (URL_DF
- .loc[URL_DF['URLS'].str.lower().str.contains('/professionals/',regex=True,na=False)] #Unique identifier
+ .query('URLS.str.lower().str.contains("/professionals/")',engine='python') #Unique identifier
  #.loc[URL_DF['URLS'].str.lower().str.contains('.html', regex=True, na=False)]  # Unique identifier
  .query('URLS not in ["nan"]')
  .drop_duplicates()
