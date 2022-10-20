@@ -106,6 +106,6 @@ for A in LIST_URLS:
 LF_NAME = 'Proskauer'
 ATT_DF = pandas.DataFrame(Attorneys)
 ATT_DF.to_excel(PATH_FOR_EXCELS+LF_NAME+".xlsx")
-# Open the Excel file
+# Open the Excel file - Windows only (?)
 import os
 os.system(f'start "excel" "{PATH_FOR_EXCELS}{LF_NAME}.xlsx"')
