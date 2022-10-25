@@ -63,9 +63,6 @@ for A_Z_URL in A_Z_URLS:
 
 URL_DF = pandas.DataFrame({"URLS":URLS})
 
-URL_DF = [{"URLS":'a',"b":'c'}]
-URL_DF = pandas.DataFrame(URL_DF)
-
 # Get rid of the URLs we don't need:
 URL_DF = (URL_DF
  .query('URLS.str.lower().str.contains("/professionals/")',engine='python') #Unique identifier
