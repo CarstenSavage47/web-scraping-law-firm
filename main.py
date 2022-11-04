@@ -86,19 +86,24 @@ Attorneys = []
 #XPath_Bio = str(input("Enter XPath for Attorney's Bio: "))
 PATH_FOR_EXCELS = "/Users/carstenjuliansavage/Documents"
 
+
+URLS = pandas.read_excel('/Users/carstenjuliansavage/Documents/AttorneysDF.xlsx',sheet_name='Sheet1 (2)')
+
+LIST_URLS = list((URLS['URL']))
+
 # Due to inconsistencies in the different attorneys' profiles, certain attributes were omitted.
 
 for A in LIST_URLS:
     try:
         driver.get(A)
         driver.implicitly_wait(1000)
-        Name = driver.find_element('xpath', ' ')
-        Location = driver.find_element('xpath', ' ')
-        Attorneys.append({"Name":Name.text,"Location":Location.text,"URL:":A})
+        Name = driver.find_element('xpath', '//*[@id="__next"]/div[1]/span[15]')
+        Office = driver.find_element('xpath', '//*[@id="__next"]/div[1]/span[2]')
+        Attorneys.append({"Name":Name.text,"Office":Office.text,"URL:":A})
     except Exception:
         driver.get(A)
         driver.implicitly_wait(1000)
-        Page = driver.find_element('xpath', '//*[@id="main"]')
+        Page = driver.find_element('xpath', '/html/body')
         Attorneys.append({"Page":Page.text})
     time.sleep(.1)
 
