@@ -98,7 +98,8 @@ for A in LIST_URLS:
     except Exception:
         driver.get(A)
         driver.implicitly_wait(1000)
-        Page = driver.find_element('xpath', ' ')
+        Page = driver.find_element('xpath', '//*[@id="main"]')
+        Attorneys.append({"Page":Page.text})
     time.sleep(.1)
 
 ## The Law Firm Name
