@@ -101,10 +101,8 @@ for A in LIST_URLS:
         Office = driver.find_element('xpath', '//*[@id="__next"]/div[1]/span[2]')
         Attorneys.append({"Name":Name.text,"Office":Office.text,"URL:":A})
     except Exception:
-        driver.get(A)
-        driver.implicitly_wait(1000)
-        Page = driver.find_element('xpath', '/html/body')
-        Attorneys.append({"Page":Page.text})
+        Attorneys.append({"Name": 'N/A', "Office": 'N/A', "URL:": 'N/A'})
+    continue
     time.sleep(.1)
 
 ## The Law Firm Name
