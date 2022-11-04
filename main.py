@@ -96,7 +96,9 @@ for A in LIST_URLS:
         Location = driver.find_element('xpath', ' ')
         Attorneys.append({"Name":Name.text,"Location":Location.text,"URL:":A})
     except Exception:
-        continue
+        driver.get(A)
+        driver.implicitly_wait(1000)
+        Page = driver.find_element('xpath', ' ')
     time.sleep(.1)
 
 ## The Law Firm Name
