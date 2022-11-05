@@ -91,7 +91,7 @@ URLS = pandas.read_excel('/Users/carstenjuliansavage/Documents/AttorneysDF.xlsx'
 
 LIST_URLS = list((URLS['URL']))
 
-# Due to inconsistencies in the different attorneys' profiles, certain attributes were omitted.
+## Due to inconsistencies in the different attorneys' profiles, certain attributes were omitted.
 
 for A in LIST_URLS:
     try:
